@@ -10,3 +10,10 @@ http://www.mongodb.org
 
 >use contactList
 >db.contactList.insert(data)
+
+### How To
+1. git clone
+
+2. cd contact && npm install
+
+3. node server.js

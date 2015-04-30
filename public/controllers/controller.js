@@ -6,4 +6,11 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 		console.log("I got the data i requested");
 		$scope.contactList = res;
 	})
+
+	$scope.addContact = function() {
+		console.log($scope.contact);
+		$http.post('/contactList', $scope.contact).success(function(res) {
+			console.log(res);
+		});
+	};
 }]);
