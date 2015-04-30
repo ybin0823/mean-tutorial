@@ -4,7 +4,7 @@ myApp.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
 
 
 	$http.get('/contactList').success(function (res) {
-		console.log("I got the data i requested");
+		console.log("I got the data I requested");
 		$scope.contactList = res;
 		$scope.contact = "";
 	});
@@ -25,11 +25,8 @@ myApp.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
 		});
 	};
 
-	$scope.editContact = function(id) {
-		console.log(id);
-		$http.get('/contactList/' + id).success(function (res) {
-			$scope.contact = res;
-		});
+	$scope.editContact = function(contact) {
+		$scope.contact = angular.copy(contact);
 	};
 
 	$scope.updateContact = function() {

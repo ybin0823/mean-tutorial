@@ -5,6 +5,7 @@ var db = mongojs('contactList', ['contactList']);
 var bodyParser = require('body-parser');
 
 app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/resources'));
 app.use(bodyParser.json());
 
 app.get('/contactList', function (req, res) {
@@ -27,14 +28,6 @@ app.delete('/contactList/:id', function (req, res) {
 	var id = req.params.id;
 	console.log(id);
 	db.contactList.remove({ _id: mongojs.ObjectId(id) }, function (err, doc) {
-		res.json(doc);
-	});
-});
-
-app.get('/contactList/:id', function (req, res) {
-	var id = req.params.id;
-	console.log(id);
-	db.contactList.findOne({ _id: mongojs.ObjectId(id) }, function (err, doc) {
 		res.json(doc);
 	});
 });
