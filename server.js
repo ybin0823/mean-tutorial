@@ -55,7 +55,7 @@ app.put('/contactList/:id', function (req, res) {
 	console.log("I received from PUT a request : ", req.params.id);
 	ContactList.findByIdAndUpdate(req.params.id, { 
 		name: req.body.name, 
-		email: req.body.email 
+		email: req.body.email,
 		number: req.body.number
 	}, { new: true }, function (err, doc) { 
 		console.log(doc);
