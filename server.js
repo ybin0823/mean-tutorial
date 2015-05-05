@@ -46,6 +46,7 @@ app.post('/contactList', function (req, res) {
 app.delete('/contactList/:id', function (req, res) {
 	console.log("I received from DELETE a request : ", req.params.id);
 	ContactList.findByIdAndRemove(req.params.id, function (err, doc) {
+		console.log(doc);
 		res.json(doc);
 	});
 });
@@ -54,9 +55,10 @@ app.put('/contactList/:id', function (req, res) {
 	console.log("I received from PUT a request : ", req.params.id);
 	ContactList.findByIdAndUpdate(req.params.id, { 
 		name: req.body.name, 
-		email: req.body.email, 
-		number: req.body.number 
-	}, function (err, doc) { 
+		email: req.body.email 
+		number: req.body.number
+	}, { new: true }, function (err, doc) { 
+		console.log(doc);
 		res.json(doc);
 	});
 });
