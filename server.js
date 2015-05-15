@@ -14,7 +14,8 @@ var contactListSchema = mongoose.Schema({
 var ContactList = mongoose.model('contactList', contactListSchema);
 
 app.use(express.static(__dirname + '/public'));
-app.use(express.static(__dirname + '/resources'));
+// app.use(express.static(__dirname + '/bower_components'));
+app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.use(bodyParser.json());
 
 app.get('/contactList', function (req, res) {
